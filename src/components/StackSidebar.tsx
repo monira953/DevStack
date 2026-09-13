@@ -14,25 +14,16 @@ const StackSidebar = ({
 }: StackSidebarProps) => {
   return (
     <aside className="card bg-base-100 border border-base-200 shadow-sm">
-      <div className="card-body">
+      <div className="card-body flex flex-col">
 
         {/* Heading */}
-        <div className="flex items-center justify-between">
-          <div>
-            <h2 className="card-title">Your Stack</h2>
-            <p className="text-sm text-base-content/60">
-              {stack.length} {stack.length === 1 ? "technology" : "technologies"} selected
-            </p>
-          </div>
+        <div>
+          <h2 className="card-title">Your Stack</h2>
 
-          {stack.length > 0 && (
-            <button
-              onClick={onRemoveAll}
-              className="btn btn-ghost btn-sm text-error"
-            >
-              Remove All
-            </button>
-          )}
+          <p className="text-sm text-base-content/60">
+            {stack.length}{" "}
+            {stack.length === 1 ? "technology" : "technologies"} selected
+          </p>
         </div>
 
         {/* Empty State */}
@@ -59,6 +50,16 @@ const StackSidebar = ({
               />
             ))}
           </div>
+        )}
+
+        {/* Remove All */}
+        {stack.length > 0 && (
+          <button
+            onClick={onRemoveAll}
+            className="btn btn-ghost btn-sm text-error mt-6"
+          >
+            Remove All
+          </button>
         )}
 
       </div>
